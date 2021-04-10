@@ -70,8 +70,8 @@ export default class DHLAPI {
     })
       .att('xmlns:req', 'http://www.dhl.com')
       .att('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
-      .att('xmlns:schemaLocation', `http://www.dhl.com ship-val-global-req.xsd`)
-      .att('schemaVersion', `6.2`)
+      .att('xsi:schemaLocation', `http://www.dhl.com ship-val-global-req.xsd`)
+      .att('schemaVersion', `10.0`)
       .end({ pretty: true });
 
     this.request(xml, (err, res) => {

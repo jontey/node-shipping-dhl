@@ -74,6 +74,8 @@ export default class DHLAPI {
       .att('schemaVersion', `10.0`)
       .end({ pretty: true });
 
+    console.log(xml)
+
     this.request(xml, (err, res) => {
       return cb(err, res);
     });

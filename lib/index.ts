@@ -65,7 +65,7 @@ export default class DHLAPI {
 
     params = _merge(this.getRequestHeader(), params.ShipmentRequest);
 
-    const xml = builder.create({
+    let xml = builder.create({
       [`req:ShipmentRequest`]: params
     })
       .att('xmlns:req', 'http://www.dhl.com')
@@ -74,7 +74,8 @@ export default class DHLAPI {
       .att('schemaVersion', `10.0`)
       .end({ pretty: true });
 
-    console.log(xml)
+    xml = xml.replace(`<?xml version="1.0"?>\n`, '')
+    console.log('XML:', typeof xml, xml);
 
     this.request(xml, (err, res) => {
       return cb(err, res);
